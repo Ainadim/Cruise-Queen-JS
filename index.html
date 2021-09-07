@@ -64,8 +64,8 @@
                 <div class="plus-minus-btn">
                     <button class="btn btn-primary" onclick="allClassSeat('business',true)"> + </button>
                     <button class="btn btn-primary" onclick="allClassSeat('business',false)"> - </button>
-                    <h2 id="businessSeatPrice">0</h2>
-                    <!-- style="display: none;" -->
+                    <h2 id="businessSeatPrice" style="display: none">0</h2>
+                    <!--  -->
                 </div>
             </div>
             
@@ -77,8 +77,8 @@
                 <div class="plus-minus-btn">
                     <button class="btn btn-primary" onclick="allClassSeat('economy', true)"> + </button>
                     <button class="btn btn-primary" onclick="allClassSeat('economy', false)"> - </button>
-                    <h2 id="economySeatPrice">0</h2>
-                    <!-- style="display: none;" -->
+                    <h2 id="economySeatPrice" style="display: none">0</h2>
+                    <!-- " -->
                 </div>
             </div>
             <div class="calculations">
@@ -125,7 +125,6 @@
             }
             document.getElementById(all + "SeatQuantity").value = allSeatQuantity;
 
-            const subtotalNumber = parseInt(document.getElementById("subtotal").innerText);
             let allClassPrice = 0;
             if (all == 'business') {
                 allClassPrice = allSeatQuantity * 300;
@@ -144,6 +143,12 @@
             
             const subtotal = businessSeatPrice + economySeatPrice;
             document.getElementById("subtotal").innerText = subtotal;
+
+            const tax = subtotal * 0.1;
+            document.getElementById("vat").innerText = tax;
+
+            const totalPrice = subtotal + tax;
+            document.getElementById("totalPrice").innerText = totalPrice;
         }
     </script>
     <!--Thank You-->
